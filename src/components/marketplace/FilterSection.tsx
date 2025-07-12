@@ -71,16 +71,17 @@ const FilterSection = ({ filterOptions }: FilterSectionProps) => {
               </Button>
             </PopoverTrigger>
             <PopoverContent
-              className="w-96 p-0"
+              className="w-96 p-0 overflow-hidden"
               align="start"
-              side="bottom"
               alignOffset={0}
               sideOffset={4}
+              avoidCollisions={true}
+              collisionPadding={16}
             >
-              <div className="flex h-80">
+              <div className="flex min-h-[320px] max-h-[400px]">
                 {/* Categories Column */}
-                <div className="w-1/2 border-r border-border">
-                  <div className="p-3">
+                <div className="w-1/2 border-r border-border bg-background">
+                  <div className="p-3 h-full">
                     <Button
                       variant="ghost"
                       className="w-full justify-start text-sm mb-2 font-medium"
@@ -91,7 +92,7 @@ const FilterSection = ({ filterOptions }: FilterSectionProps) => {
                     >
                       Все категории
                     </Button>
-                    <div className="space-y-1">
+                    <div className="space-y-1 overflow-y-auto max-h-[340px]">
                       {filterOptions.categories.map((category) => (
                         <Button
                           key={category.name}
@@ -122,14 +123,14 @@ const FilterSection = ({ filterOptions }: FilterSectionProps) => {
                 </div>
 
                 {/* Subcategories Column */}
-                <div className="w-1/2">
-                  <div className="p-3">
+                <div className="w-1/2 bg-background">
+                  <div className="p-3 h-full">
                     {hoveredCategory && (
                       <>
                         <div className="text-sm font-medium text-foreground mb-2">
                           {hoveredCategory}
                         </div>
-                        <div className="space-y-1">
+                        <div className="space-y-1 overflow-y-auto max-h-[340px]">
                           {filterOptions.categories
                             .find((cat) => cat.name === hoveredCategory)
                             ?.subcategories.map((sub) => (
@@ -154,7 +155,7 @@ const FilterSection = ({ filterOptions }: FilterSectionProps) => {
                         <div className="text-sm font-medium text-foreground mb-2">
                           {selectedCategory}
                         </div>
-                        <div className="space-y-1">
+                        <div className="space-y-1 overflow-y-auto max-h-[340px]">
                           {filterOptions.categories
                             .find((cat) => cat.name === selectedCategory)
                             ?.subcategories.map((sub) => (
