@@ -201,7 +201,7 @@ const Index = () => {
 
           {/* Search Bar */}
           <div className="max-w-4xl mx-auto mb-8">
-            <div className="glass-card rounded-2xl p-6">
+            <div className="glass-card rounded-2xl p-6 px-3 py-3">
               <div className="flex flex-col md:flex-row gap-4">
                 <div className="flex-1 relative">
                   <Icon
@@ -224,7 +224,7 @@ const Index = () => {
 
           {/* Filters */}
           <div className="max-w-6xl mx-auto">
-            <div className="glass-surface rounded-xl p-4">
+            <div className="glass-surface rounded-xl p-4 px-2">
               <div className="grid grid-cols-1 md:grid-cols-4 gap-4">
                 <Select>
                   <SelectTrigger className="bg-white/50 border-0">
