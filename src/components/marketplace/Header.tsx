@@ -22,7 +22,7 @@ const Header = () => {
 
           <nav className="hidden md:flex items-center space-x-8">
             <a
-              href="#"
+              href="/"
               className="text-sm text-muted-foreground hover:text-primary transition-colors font-medium"
             >
               Главная
@@ -34,7 +34,7 @@ const Header = () => {
               Мои объявления
             </a>
             <a
-              href="#"
+              href="/favorites"
               className="text-sm text-muted-foreground hover:text-primary transition-colors font-medium"
             >
               Избранное
