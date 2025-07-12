@@ -1,15 +1,9 @@
 import React from "react";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
-import {
-  Select,
-  SelectContent,
-  SelectItem,
-  SelectTrigger,
-  SelectValue,
-} from "@/components/ui/select";
 import Icon from "@/components/ui/icon";
 import { FilterOptions } from "@/types";
+import FilterSection from "./FilterSection";
 
 interface SearchSectionProps {
   filterOptions: FilterOptions;
@@ -51,64 +45,7 @@ const SearchSection = ({ filterOptions }: SearchSectionProps) => {
           </div>
         </div>
 
-        {/* Filters */}
-        <div className="max-w-5xl mx-auto">
-          <div className="glass-surface rounded-lg p-3">
-            <div className="grid grid-cols-1 md:grid-cols-4 gap-3">
-              <Select>
-                <SelectTrigger className="bg-white/50 border-0 h-9 text-sm">
-                  <SelectValue placeholder="Категория" />
-                </SelectTrigger>
-                <SelectContent>
-                  {filterOptions.categories.map((category) => (
-                    <SelectItem key={category} value={category.toLowerCase()}>
-                      {category}
-                    </SelectItem>
-                  ))}
-                </SelectContent>
-              </Select>
-
-              <Select>
-                <SelectTrigger className="bg-white/50 border-0 h-9 text-sm">
-                  <SelectValue placeholder="Общежитие" />
-                </SelectTrigger>
-                <SelectContent>
-                  {filterOptions.dormitories.map((dorm) => (
-                    <SelectItem key={dorm} value={dorm.toLowerCase()}>
-                      {dorm}
-                    </SelectItem>
-                  ))}
-                </SelectContent>
-              </Select>
-
-              <Select>
-                <SelectTrigger className="bg-white/50 border-0 h-9 text-sm">
-                  <SelectValue placeholder="Цена" />
-                </SelectTrigger>
-                <SelectContent>
-                  {filterOptions.priceRanges.map((range) => (
-                    <SelectItem key={range.value} value={range.value}>
-                      {range.label}
-                    </SelectItem>
-                  ))}
-                </SelectContent>
-              </Select>
-
-              <Select>
-                <SelectTrigger className="bg-white/50 border-0 h-9 text-sm">
-                  <SelectValue placeholder="Сортировка" />
-                </SelectTrigger>
-                <SelectContent>
-                  {filterOptions.sortOptions.map((option) => (
-                    <SelectItem key={option.value} value={option.value}>
-                      {option.label}
-                    </SelectItem>
-                  ))}
-                </SelectContent>
-              </Select>
-            </div>
-          </div>
-        </div>
+        <FilterSection filterOptions={filterOptions} />
       </div>
     </section>
   );

@@ -10,8 +10,13 @@ export interface Listing {
   pushed?: boolean;
 }
 
+export interface CategoryOption {
+  name: string;
+  subcategories: string[];
+}
+
 export interface FilterOptions {
-  categories: string[];
+  categories: CategoryOption[];
   dormitories: string[];
   priceRanges: { value: string; label: string }[];
   sortOptions: { value: string; label: string }[];
