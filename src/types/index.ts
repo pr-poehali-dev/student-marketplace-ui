@@ -1,3 +1,5 @@
+export type ListingStatus = "active" | "pending" | "stashed" | "completed";
+
 export interface Listing {
   id: number;
   title: string;
@@ -8,6 +10,9 @@ export interface Listing {
   dormitory: string;
   category: string;
   pushed?: boolean;
+  status?: ListingStatus;
+  createdAt?: string;
+  views?: number;
 }
 
 export interface CategoryOption {

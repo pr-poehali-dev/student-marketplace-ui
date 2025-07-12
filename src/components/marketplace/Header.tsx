@@ -28,7 +28,7 @@ const Header = () => {
               Главная
             </a>
             <a
-              href="#"
+              href="/my-listings"
               className="text-sm text-muted-foreground hover:text-primary transition-colors font-medium"
             >
               Мои объявления
@@ -53,6 +53,12 @@ const Header = () => {
             <Button size="sm" className="glow-primary h-8 px-3">
               <Icon name="Plus" size={14} className="mr-1.5" />
               Подать объявление
+            </Button>
+            <Button variant="ghost" size="icon" className="h-8 w-8 relative">
+              <Icon name="Bell" size={16} />
+              <Badge className="absolute -top-1 -right-1 h-5 w-5 rounded-full p-0 text-xs flex items-center justify-center bg-red-500 text-white">
+                3
+              </Badge>
             </Button>
             <Button variant="ghost" size="icon" className="h-8 w-8">
               <Icon name="User" size={16} />
