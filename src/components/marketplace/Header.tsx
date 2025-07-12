@@ -50,9 +50,11 @@ const Header = () => {
               <Icon name="MessageCircle" size={14} className="mr-1.5" />
               Сообщения
             </Button>
-            <Button size="sm" className="glow-primary h-8 px-3">
-              <Icon name="Plus" size={14} className="mr-1.5" />
-              Подать объявление
+            <Button size="sm" className="glow-primary h-8 px-3" asChild>
+              <a href="/add-listing">
+                <Icon name="Plus" size={14} className="mr-1.5" />
+                Подать объявление
+              </a>
             </Button>
             <Button variant="ghost" size="icon" className="h-8 w-8 relative">
               <Icon name="Bell" size={16} />

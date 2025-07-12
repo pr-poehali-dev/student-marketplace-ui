@@ -25,7 +25,7 @@ const ProductCard = ({ listing, isVip = false }: ProductCardProps) => {
             </div>
             <div className="flex-1 min-w-0">
               <div className="flex items-start justify-between mb-1.5">
-                <h4 className="font-medium text-foreground truncate text-sm">
+                <h4 className="font-medium text-foreground truncate text-base">
                   {listing.title}
                 </h4>
                 {listing.verified && (
@@ -39,16 +39,14 @@ const ProductCard = ({ listing, isVip = false }: ProductCardProps) => {
               <p className="text-xl font-semibold text-primary mb-1.5">
                 {listing.price}
               </p>
-              <p className="text-xs text-muted-foreground mb-2 line-clamp-2">
-                {listing.description}
-              </p>
+
               <div className="flex items-center justify-between">
                 <div className="flex items-center space-x-1.5">
                   <Badge variant="secondary" className="text-xs px-1.5 py-0.5">
                     {listing.category}
                   </Badge>
                   <Badge variant="outline" className="text-xs px-1.5 py-0.5">
-                    Общага {listing.dormitory}
+                    {listing.dormitory}
                   </Badge>
                 </div>
                 <div className="flex space-x-1">
@@ -100,31 +98,26 @@ const ProductCard = ({ listing, isVip = false }: ProductCardProps) => {
 
         <div className="space-y-2">
           <div className="flex items-start justify-between">
-            <h4 className="font-medium text-foreground text-sm line-clamp-2 flex-1">
+            <h4 className="font-medium text-foreground text-base line-clamp-2 flex-1">
               {listing.title}
             </h4>
             {listing.verified && (
               <Icon
                 name="CheckCircle"
-                size={12}
+                size={14}
                 className="text-primary flex-shrink-0 ml-1.5"
               />
             )}
           </div>
 
-          <p className="text-base font-semibold text-primary">
-            {listing.price}
-          </p>
-          <p className="text-xs text-muted-foreground line-clamp-2">
-            {listing.description}
-          </p>
+          <p className="text-lg font-semibold text-primary">{listing.price}</p>
 
           <div className="flex flex-wrap gap-1">
             <Badge variant="secondary" className="text-xs px-1.5 py-0.5">
               {listing.category}
             </Badge>
             <Badge variant="outline" className="text-xs px-1.5 py-0.5">
-              Общага {listing.dormitory}
+              {listing.dormitory}
             </Badge>
           </div>
 
