@@ -1,4 +1,4 @@
-export type ListingStatus = "active" | "pending" | "stashed" | "completed";
+export type ListingStatus = "active" | "pending" | "stashed" | "completed" | "rejected";
 export type ItemCondition = "new" | "used" | "damaged";
 
 export interface Listing {
@@ -54,6 +54,9 @@ export interface UserProfile {
   isOnline?: boolean;
   lastSeen?: string;
   bio?: string;
+  role?: 'user' | 'moderator' | 'admin';
+  status?: 'active' | 'blocked' | 'suspended';
+  lastActivity?: string;
 }
 
 export type NotificationType =
@@ -99,4 +102,68 @@ export interface Chat {
   unreadCount: number;
   isOnline?: boolean;
   lastSeen?: string;
+}
+
+export interface Report {
+  id: number;
+  reporterId: number;
+  reporter: UserProfile;
+  targetType: 'listing' | 'user' | 'message';
+  targetId: number;
+  target?: Listing | UserProfile | ChatMessage;
+  reason: string;
+  description: string;
+  status: 'pending' | 'reviewed' | 'resolved' | 'dismissed';
+  priority: 'low' | 'medium' | 'high';
+  createdAt: string;
+  reviewedAt?: string;
+  reviewedBy?: number;
+  moderator?: UserProfile;
+  resolution?: string;
+  evidence?: string[];
+}
+
+export interface ModerationAction {
+  id: number;
+  moderatorId: number;
+  moderator: UserProfile;
+  targetType: 'listing' | 'user' | 'report';
+  targetId: number;
+  action: 'approve' | 'reject' | 'block' | 'warn' | 'delete' | 'edit';
+  reason: string;
+  description?: string;
+  createdAt: string;
+}
+
+export interface Analytics {
+  totalUsers: number;
+  activeUsers: number;
+  totalListings: number;
+  activeListings: number;
+  totalSales: number;
+  revenue: number;
+  pendingReports: number;
+  pendingListings: number;
+  userGrowth: { date: string; count: number }[];
+  listingGrowth: { date: string; count: number }[];
+  categoryStats: { category: string; count: number; percentage: number }[];
+  dormitoryStats: { dormitory: string; users: number; listings: number }[];
+  moderationStats: {
+    totalActions: number;
+    approvedListings: number;
+    rejectedListings: number;
+    resolvedReports: number;
+  };
+}
+
+export interface Subscription {
+  id: number;
+  userId: number;
+  user: UserProfile;
+  type: 'basic' | 'premium' | 'vip';
+  status: 'active' | 'expired' | 'cancelled';
+  startDate: string;
+  endDate: string;
+  price: number;
+  features: string[];
 }
